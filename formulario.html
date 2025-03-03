@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<head>
+    <html lang = "pt">
+    <meta name="description" content = "Informática, tecnologia">
+    <meta name="author" content = "Nayelle Brito">
+    <link rel="icon"type="image/png" href= "favicon.png">
+
+    <style>
+        .error { color: red; }
+    </style>
+
+<style>
+    body {
+        background-image: url('https://t4.ftcdn.net/jpg/02/43/37/67/360_F_243376759_VZEpwRRstiwMRsDzg96UC8ByFeRGCpQX.jpg');
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        height: 190vh; 
+    }
+</style>
+<style>
+ul {
+    list-style-type: none; 
+    padding: 0;
+    text-align: center; 
+}
+</style>
+
+</head>
+
+<body>
+
+    <center>
+
+    <style>
+        .vertical-menu {
+          width: 150px
+        }
+       
+        .vertical-menu a {
+          background-color: rgb(10, 101, 146);
+          color: rgb(255, 255, 255);
+          display: block;
+          padding: 11px;
+          text-decoration: none;
+        }
+       
+        .vertical-menu a:hover {
+          background-color: rgb(12, 148, 233);
+        }
+       
+        .vertical-menu a.active {
+          background-color: rgb(255, 255, 255);
+          color: white;
+        }
+  
+        </style>
+  
+      <strong> <h2> Menu </h2> </strong>
+          <div class="vertical-menu">
+            <a href="formulario.html"> Formulário de acesso </a>
+              <a href="Apresentacao.html"> Apresentação </a>
+              <a href="Avanco.html"> Avanço tecnológico </a>
+              <a href="Industria.html"> Indústria 4.0 </a>
+          </div>
+
+    <form id="meuFormulario">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome">
+        <span id="erroNome" class="error"></span>
+        <br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email">
+        <span id="erroEmail" class="error"></span>
+        <br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        document.getElementById("meuFormulario").addEventListener("submit", function(event) {
+            let valido = true;
+
+            let nome = document.getElementById("nome").value.trim();
+            let email = document.getElementById("email").value.trim();
+            
+            let erroNome = document.getElementById("erroNome");
+            let erroEmail = document.getElementById("erroEmail");
+
+            erroNome.textContent = "";
+            erroEmail.textContent = "";
+
+            if (nome === "") {
+                erroNome.textContent = "O nome é obrigatório!";
+                valido = false;
+            }
+
+            let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === "") {
+                erroEmail.textContent = "O e-mail é obrigatório!";
+                valido = false;
+            } else if (!regexEmail.test(email)) {
+                erroEmail.textContent = "Formato de e-mail inválido!";
+                valido = false;
+            }
+
+            if (!valido) {
+                event.preventDefault();
+            }
+        });
+    </script>
+    </center>
+</body>
+</html>
